@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Study Buddy Pomodoro</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body><div id="usernameBox">
+  <label>Enter username:</label>
+  <input type="text" id="usernameInput" />
+  <button id="saveUsername">Continue</button>
+</div>
+
+  <main class="app">
+
+    <h1 class="title">Study Buddy Pomodoro 🐻</h1>
+
+    <!-- Buddy Card -->
+    <section class="buddy-card">
+      <img id="buddyImage"
+           src="{{ url_for('static', filename='images/bear_soft.jpeg') }}"
+           alt="Study Buddy"
+           class="buddy-img"/>
+
+      <p id="buddyMessage" class="buddy-message">
+        I'm here with you. Let's take it one step at a time 🩷
+      </p>
+    </section>
+
+    <!-- Timer -->
+    <section class="timer">
+      <span id="time">25:00</span>
+    </section>
+
+    <p id="mode">Study Time 📚</p>
+
+
+    <!-- Controls -->
+    <section class="controls">
+      <button id="startBtn">Start</button>
+      <button id="pauseBtn">Pause</button>
+      <button id="resetBtn">Reset</button>
+    </section>
+
+    <!-- Buddy Selector -->
+    <section class="buddy-selector">
+      <label for="buddy">Choose your buddy:</label>
+      <select id="buddy">
+        <option value="soft">Soft 🩷</option>
+        <option value="strict">Strict 🔥</option>
+        <option value="funny">Funny 😆</option>
+        <option value="senpai">Senpai 👀</option>
+      </select>
+    </section>
+
+    <!-- Custom Timer Settings -->
+<section class="timer-settings">
+  <label>
+    Study (min):
+    <input type="number" id="studyInput" value="25" min="1">
+  </label>
+
+  <label>
+    Break (min):
+    <input type="number" id="breakInput" value="5" min="1">
+  </label>
+</section>
+
+
+    <!-- Dashboard -->
+    <section class="stats">
+      <p>Today's Sessions: <span id="sessions">0</span></p>
+      <p>Current Streak: <span id="streak">0</span> 🔥</p>
+    </section>
+
+  </main>
+
+  <script src="{{ url_for('static', filename='js/timer.js') }}"></script>
+</body>
+</html>
